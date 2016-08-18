@@ -1,0 +1,9 @@
+vi /etc/default/grub 
+GRUB_CMDLINE_LINUX = net.ifnames=0
+
+grub2-mkconfig -o /boot/grub2/grub.cfg 
+
+vi /etc/udev/rules.d/70-persistent-net.rules 
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="08:00:27:a9:7a:e1", ATTR{type}=="1", KERNEL=="eth*", NAME="sushi"
+
+
